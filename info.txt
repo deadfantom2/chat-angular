@@ -1,0 +1,69 @@
+1) npm i materialize-css --save
+   Après dans angular.json rajouter à la ligne 26 et 28: 
+    "styles": ["./node_modules/materialize-css/dist/css/materialize.css", "src/styles.css"],
+    "scripts": ["./node_modules/materialize-css/dist/js/materialize.js"]
+2) ng g component components/authTabs --spec=false
+    Dans app.module.ts été créer AuthTabsComponent
+3) ng g module modules/auth --spec=false --flat
+4) Dans app.module.ts supprimer AuthTabsComponent
+5) Dans auth.module.ts créer exports: [] et mettre dedans AuthTabsComponent
+   Dans auth.module.ts dans  declarations: [] mettre AuthTabsComponent
+6) Dans auth.module.ts ajouter dans imports: []  AuthModule
+7) ng g module modules/auth-routing --spec=false --flat
+    Dans app.module.ts ajouter dans imports: [] AuthRoutingModule
+    Ensuite dans auth-routing.module.ts créer const routes: Routes = [] qui contiendra les path et component et guard etc...
+    Ajouter dans auth-routing.module.ts   imports: [RouterModule.forRoot(routes)],
+    Ajouter dans auth-routing.module.ts   exports: [RouterModule]
+8) Dans app.component.html ajouter <router-outlet>
+9) ng g component components/login --spec=false
+    Dans app.module.ts supprimer LoginComponent
+    Dans auth.module.ts declarations: [] ajouter LoginComponent
+    Dans auth.module.ts exports: [] ajouter LoginComponent
+10) ng g component components/register --spec=false
+    Meme que 9)
+11) ng g service services/auth --spec=false
+    Dans auth.module.ts providers: [] ajouter AuthService
+    Dans auth.module.ts imports: [] ajouter HttpClientModule
+12) ng g component components/streams --spec=false
+13) ng g module modules/streams --spec=false --flat
+14) ng g module modules/streams-routing --spec=false --flat
+    Dans app.module.ts ajouter dans imports: [] StreamsModule, StreamsRoutingModule
+    Dans app.module.ts supprimer dans declarations: [] StreamsComponent
+    Dans stream.module.ts ajouter dans declarations et exports StreamsComponent
+15) ng g service services/token --spec=false --flat
+    Dans streams.module.ts ajouter dans providers: [] TokenService
+16) npm i ngx-cookie-service --save
+    Dans app.module.ts ajouter dans providers: [] CookieService
+17) ng g guard guards/auth --spec=false
+18) ng g c components/toolbar --spec=false
+    Dans app.module.ts supprimer ToolbarComponent
+    Dans streams.module.ts ajouter dans (declarations: [] et exports: []) ToolbarComponent
+19) ng g c components/side --spec=false --module=modules/streams.module.ts
+20) ng g c components/postForm --spec=false --module=modules/streams.module.ts
+21) ng g c components/posts --spec=false --module=modules/streams.module.ts
+22) ng g s services/post --spec=false --module=modules/streams.module.ts
+23) npm i momemnt --save
+        clock
+24) npm i lodash --save
+25) ng g c components/comments --spec=false --module=modules/streams.module.ts
+26) ng g c components/people --spec=false --module=modules/streams.module.ts
+27) ng g s services/users --spec=false
+    Dans streams.module.ts add usersService.ts
+28) ng g c components/following --spec=false --module=modules/streams.module.ts
+29) ng g c components/followers --spec=false --module=modules/streams.module.ts
+30) ng g c components/notifications --spec=false --module=modules/streams.module.ts
+31) ng g c components/topStreams --spec=false --module=modules/streams.module.ts
+32) ng g c components/chat --spec=false --module=modules/streams.module.ts
+33) ng g c components/message --spec=false --module=modules/streams.module.ts
+34) ng g s services/message --spec=false
+    Ajouter dans streams.module.ts dans provider: []
+
+
+
+
+
+
+
+
+
+
